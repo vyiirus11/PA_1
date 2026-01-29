@@ -2,6 +2,7 @@ import sys
 from processInput import read_input
 from processInput import create_objects
 from galeShapley import gale_shapley
+from galeShapley import output
 
 def main():
     if len(sys.argv) < 2:
@@ -19,6 +20,7 @@ def main():
     
     hospitals, applicants = create_objects(n, hospitals_prefs, applicants_prefs)
     gale_shapley(hospitals)
+    output(hospitals)
 
 
 if __name__ == "__main__":

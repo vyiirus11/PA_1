@@ -1,23 +1,5 @@
 from collections import deque
 
-# Initialize each person and hospital to be free.
-# ideally hospital is an object with a preference list and matched applicants
-# applicants are objects with preference lists and matched hospitals
-
-#class Hospital:
-    #def __init__(self, name, preferences):
-        #self.name = name
-        #self.preferences = preferences
-        #self.matched_applicant = None
-
-#class Applicant:
-    #def __init__(self, name, preferences):
-        #self.name = name
-        #self.preferences = preferences
-        #self.matched_hospital = None
-
-# assume we are passing in n (number of hospitals/applicants),
-# a queue of hospital objects and a list of applicant objects
 def gale_shapley(hospitals):
 
     while (len(hospitals) > 0):
@@ -47,16 +29,8 @@ def gale_shapley(hospitals):
             # a rejects H so H gets added back to the queue
             curr_hospital.prefs.popleft() # remove fav_app from curr_hospital's list
 
-
-# while (some hospital is free and hasn't been match/assigned
-# to every applicant) {
-#     Choose such a hospital H
-#     a = 1st applicant on H's list to whom H has not been matched
-#    if (a is free) 
-#        Match H and a
-#    else if (a prefers H to its current assignment H')
-#        Match H and a
-#        Free H'
-#    else
-#        a rejects H
-# }
+# we need a list of all hospitals in order to print the output matches 
+def output(hospitals_list):
+    print("\nFinal Matches:")
+    for hospital in hospitals_list:
+        print(f"Hospital {hospital.id} is matched with Applicant {hospital.matched_applicant.id}")

@@ -2,23 +2,33 @@ from collections import deque
 
 # Initialize each person and hospital to be free.
 # ideally hospital is an object with a preference list and matched applicants
-# applicants are objects with preference lists and matched hospitals
+# applicants are objects with preference lists and matched hospitals 
+
+# preferences: list of student IDS (1..n)
+# matched_applicant: students
+# nameH: hospital ID
+# nameA: student ID (Applicant)
+# #
 
 class Hospital:
-    def __init__(self, name, preferences):
-        self.name = name
+    def __init__(self, nameH, preferences):
+        self.name = nameH
         self.preferences = preferences
+        self.next_idx = 0 #//TODO:keep in mind
         self.matched_applicant = None
 
 class Applicant:
-    def __init__(self, name, preferences):
-        self.name = name
+    def __init__(self, nameA, preferences):
+        self.name = nameA
         self.preferences = preferences
+        self.rank = {nameH: r for r, nameH in enumerate(preferences)}
         self.matched_hospital = None
 
 # assume we are passing in n (number of hospitals/applicants),
 # a queue of hospital objects and a list of applicant objects
 def gale_shapley(hospitals):
+    # hospital id -1
+    # student id -1#
 
     while (hospitals.empty() is False):
         curr_hospital = hospitals[0]

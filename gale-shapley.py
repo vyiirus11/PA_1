@@ -18,19 +18,19 @@ class Applicant:
 
 # assume we are passing in n (number of hospitals/applicants),
 # a queue of hospital objects and a list of applicant objects
-def gale_shapley(hospitals, applicants):
+def gale_shapley(hospitals):
 
     while (hospitals.empty() is False):
-        curr_hospital = hospitals.popleft()
-        fav_app = curr_hospital.preferences.popleft()
+        curr_hospital = hospitals[0]
+        fav_app = curr_hospital.preferences[0]
 
         if (fav_app.matched_hospital is None):
             # match hospital and applicant
             curr_hospital.matched_applicant = fav_app
             fav_app.matched_hospital = curr_hospital
+            hospitals.popleft()
 
-        elif (fav_app.matched_hospital is not None and
-              fav_app.preferences.index(curr_hospital) <
+        elif (fav_app.preferences.index(curr_hospital) <
               fav_app.preferences.index(fav_app.matched_hospital)):
             
             # match H and a
@@ -38,12 +38,14 @@ def gale_shapley(hospitals, applicants):
             old_hospital = fav_app.matched_hospital
             old_hospital.matched_applicant = None
             fav_app.matched_hospital = curr_hospital
+
+            hospitals.popleft()
             # add old hospital back to queue
             hospitals.append(old_hospital)
 
         else:
             # a rejects H so H gets added back to the queue
-            hospitals.append(curr_hospital)
+            curr_hospital.preferences.popleft() # remove fav_app from curr_hospital's list
 
 # while (some hospital is free and hasn't been match/assigned
 # to every applicant) {

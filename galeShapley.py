@@ -4,25 +4,25 @@ from collections import deque
 # ideally hospital is an object with a preference list and matched applicants
 # applicants are objects with preference lists and matched hospitals
 
-class Hospital:
-    def __init__(self, name, preferences):
-        self.name = name
-        self.preferences = preferences
-        self.matched_applicant = None
+#class Hospital:
+    #def __init__(self, name, preferences):
+        #self.name = name
+        #self.preferences = preferences
+        #self.matched_applicant = None
 
-class Applicant:
-    def __init__(self, name, preferences):
-        self.name = name
-        self.preferences = preferences
-        self.matched_hospital = None
+#class Applicant:
+    #def __init__(self, name, preferences):
+        #self.name = name
+        #self.preferences = preferences
+        #self.matched_hospital = None
 
 # assume we are passing in n (number of hospitals/applicants),
 # a queue of hospital objects and a list of applicant objects
 def gale_shapley(hospitals):
 
-    while (hospitals.empty() is False):
+    while (len(hospitals) > 0):
         curr_hospital = hospitals[0]
-        fav_app = curr_hospital.preferences[0]
+        fav_app = curr_hospital.prefs[0]
 
         if (fav_app.matched_hospital is None):
             # match hospital and applicant
@@ -45,7 +45,8 @@ def gale_shapley(hospitals):
 
         else:
             # a rejects H so H gets added back to the queue
-            curr_hospital.preferences.popleft() # remove fav_app from curr_hospital's list
+            curr_hospital.prefs.popleft() # remove fav_app from curr_hospital's list
+
 
 # while (some hospital is free and hasn't been match/assigned
 # to every applicant) {

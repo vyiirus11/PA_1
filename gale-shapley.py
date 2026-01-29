@@ -30,8 +30,8 @@ def gale_shapley(hospitals):
             fav_app.matched_hospital = curr_hospital
             hospitals.popleft()
 
-        elif (fav_app.preferences.index(curr_hospital) <
-              fav_app.preferences.index(fav_app.matched_hospital)):
+        elif (fav_app.rank[curr_hospital.id] <
+              fav_app.rank[fav_app.matched_hospital.id]):
             
             # match H and a
             curr_hospital.matched_applicant = fav_app

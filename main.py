@@ -5,7 +5,7 @@ from galeShapley import gale_shapley, output
 from runningTime import run_experiment
 
 def main():
-    if sys.argv[1] == "--time":
+    if sys.argv[1] == "--runningTime":
         run_experiment()
         return
 

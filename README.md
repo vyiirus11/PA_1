@@ -5,7 +5,10 @@ Carmel Norris #99049562
 
 To run the Gale Shapley Algorithm, from \PA_1, run the command "python main.py <theinput.txt>".
 For example: python main.py examplein.txt
-This will produce the expected output, which can be seen in the terminal. Python's matplotlib should be installed in order to see the plot for task c.
+This will produce the expected output, which can be seen in the terminal. 
+To run task C and see the times for different n values as well as the plot for the matcher algorithm, 
+run the command "python main.py --runningTime" 
+Python's matplotlib should be installed in order to see the plot for task c.
 
 To run the verifier, 
 

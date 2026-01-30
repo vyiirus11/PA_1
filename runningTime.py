@@ -1,4 +1,5 @@
 import time
+import matplotlib.pyplot as plt
 from generatingInstances import generate_instance
 from processInput import create_objects
 from galeShapley import gale_shapley 
@@ -22,3 +23,10 @@ def run_experiment():
         elapsed_time = end_time - start_time
         times.append((n, elapsed_time))
         print(f"n={n}, time={elapsed_time:.6f} seconds")
+
+    # Plotting the results
+    plt.plot(ns, [t[1] for t in times], marker='o')
+    plt.xlabel('Number of Hospitals/Applicants (n)')
+    plt.ylabel('Running Time (seconds)')
+    plt.title('Gale-Shapley Algorithm Running Time')
+    plt.show()

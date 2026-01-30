@@ -26,21 +26,12 @@ def read_input(filename, hospitals_prefs, applicants_prefs):
         for j in range(n):
             applicants_prefs.append(list(map(int, f.readline().strip().split())))
 
-    print( "Read input successfully." )
-    print("\nhospital prefs: ")
-    print(hospitals_prefs)
-    print("\napplicant prefs: ")
-    print(applicants_prefs)
     return n
 
 def create_objects(n, hospital_prefs, applicant_prefs):
     applicants = []
     for i in range(1, n+1):
         applicants.append(Applicant(i, applicant_prefs[i-1]))
-    
-    print("Created applicant objects.")
-    for app in applicants:
-        print(f"Applicant {app.id} prefs: {app.prefs}, rank: {app.rank}")
 
     hospital_list = []
     hospitals_deque = deque()
@@ -49,9 +40,5 @@ def create_objects(n, hospital_prefs, applicant_prefs):
         h = Hospital(j, prefs_as_objs)
         hospital_list.append(h)
         hospitals_deque.append(h)
-
-    print("Created hospital objects.")
-    for h in hospitals_deque:
-        print(f"Hospital {h.id} prefs: {[app.id for app in h.prefs]}")
 
     return hospital_list,hospitals_deque, applicants

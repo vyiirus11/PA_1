@@ -1,13 +1,13 @@
 import sys
 from processInput import read_input
 from processInput import create_objects
-from galeShapley import gale_shapley
-from galeShapley import output
+from galeShapley import gale_shapley, output
+from runningTime import run_experiment
 
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: python main.py <input_file>")
-        sys.exit(1)
+    if sys.argv[1] == "--time":
+        run_experiment()
+        return
 
     input_file = sys.argv[1]
     hospitals_prefs = []
@@ -20,6 +20,7 @@ def main():
     
     hospital_list, hospitals_deque, applicants = create_objects(n, hospitals_prefs, applicants_prefs)
     gale_shapley(hospitals_deque, hospital_list)
+    output(hospital_list)
 
 
 

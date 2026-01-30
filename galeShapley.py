@@ -29,7 +29,6 @@ def gale_shapley(hospitals_deque, hospital_list):
             # a rejects H so H gets added back to the queue
             curr_hospital.prefs.popleft() # remove fav_app from curr_hospital's list
 
-    output(hospital_list)
 
 # we need a list of all hospitals in order to print the output matches 
 def output(hospitals_list):

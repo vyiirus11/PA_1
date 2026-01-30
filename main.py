@@ -18,9 +18,9 @@ def main():
         print(f"Error: File '{input_file}' not found.")
         sys.exit(1)
     
-    hospitals, applicants = create_objects(n, hospitals_prefs, applicants_prefs)
-    gale_shapley(hospitals)
-    output(hospitals)
+    hospital_list, hospitals_deque, applicants = create_objects(n, hospitals_prefs, applicants_prefs)
+    gale_shapley(hospitals_deque)
+    output(hospital_list)
 
 
 if __name__ == "__main__":

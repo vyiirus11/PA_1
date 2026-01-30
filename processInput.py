@@ -42,13 +42,16 @@ def create_objects(n, hospital_prefs, applicant_prefs):
     for app in applicants:
         print(f"Applicant {app.id} prefs: {app.prefs}, rank: {app.rank}")
 
-    hospitals = deque()
+    hospital_list = []
+    hospitals_deque = deque()
     for j in range(1, n+1):
         prefs_as_objs = [applicants[k-1] for k in hospital_prefs[j-1]]
-        hospitals.append(Hospital(j, prefs_as_objs))
+        h = Hospital(j, prefs_as_objs)
+        hospital_list.append(h)
+        hospitals_deque.append(h)
 
     print("Created hospital objects.")
-    for h in hospitals:
+    for h in hospitals_deque:
         print(f"Hospital {h.id} prefs: {[app.id for app in h.prefs]}")
 
-    return hospitals, applicants
+    return hospital_list,hospitals_deque, applicants

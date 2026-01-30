@@ -5,10 +5,13 @@ from galeShapley import gale_shapley, output
 from runningTime import run_experiment
 
 def main():
+
+    #run task C
     if sys.argv[1] == "--runningTime":
         run_experiment()
         return
 
+    #otherwise run task A/B
     input_file = sys.argv[1]
     hospitals_prefs = []
     applicants_prefs = []

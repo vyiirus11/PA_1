@@ -19,8 +19,8 @@ def main():
         sys.exit(1)
     
     hospital_list, hospitals_deque, applicants = create_objects(n, hospitals_prefs, applicants_prefs)
-    gale_shapley(hospitals_deque)
-    output(hospital_list)
+    gale_shapley(hospitals_deque, hospital_list)
+
 
 
 if __name__ == "__main__":

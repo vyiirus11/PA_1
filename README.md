@@ -16,7 +16,7 @@ exampleout.txt
 <ol>
 <br>
 <li>
-After creating exampleout.txt, go to bottom right corner of the exampleout.txt file and click on UTF-##
+After creating outpit file "exampleout.txt", go to bottom right corner of the exampleout.txt file and click on UTF-##
 
 <div align="center">
 <br>

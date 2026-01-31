@@ -1,18 +1,12 @@
 # PA_1
-matching and verifying
 
+### FILES
+`gale_shapley:` <br/>
+`read_input:` <br/>
+`verifier:` <br/>
+`main.py:` <br/>
 
-Task C: graphing: matplotlib, pyplot
-
-read-input.py
-
-gale-shapley.py
-
-Testing
-examplein.txt
-exampleout.txt
-
-### ERROR MAY OCCUR WITH OUTPUT TEXT FILE, SOLUTION BELOW
+### TESTING | ERROR MAY OCCUR WITH OUTPUT TEXT FILE, SOLUTION BELOW
 <ol>
 <br>
 <li>
@@ -50,7 +44,7 @@ Run verfier again
 </ol>
 <br>
 
-### Commands
+### COMMANDS
 1. input: 
 ```
 python .\main.py match .\examplein.txt

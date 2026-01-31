@@ -111,5 +111,12 @@ On the graph, both curves increase slowly at first and then rise faster as n get
     <br>
 
 <br>
+
+Assumptions:
+We assume there will always be an equal number of hospitals and students. 
+We assume that each hospital's list of preferences will include ONE of each of the applicants. 
+No duplicates and no missing values. We assume the same for the preferences of the applicants. 
+We also assume that the input file is made up of integers. 
+
 Helen Dang: 58380926<br/>
 Carmel Norris: 99049562

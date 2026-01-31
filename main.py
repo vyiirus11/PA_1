@@ -11,8 +11,12 @@ def _load_module(path, module_name):
     spec.loader.exec_module(mod)
     return mod
 
-processInput = _load_module("./read-input.py", "processInput")
-galeShapley  = _load_module("./gale-shapley.py", "galeShapley")
+processInput = _load_module("./read_input.py", "processInput")
+galeShapley  = _load_module("./gale_shapley.py", "galeShapley")
+verifier = _load_module("./verifier.py", "verifier")
+
+
+
 
 
 def main():
@@ -23,7 +27,7 @@ def main():
         print("  python main.py verify <input_file>")
         sys.exit(1)
 
-    mode = sys.argv[1]
+    mode = sys.argv[1] #.lower()
     input_file = sys.argv[2]
 
     hospitals_prefs = []
@@ -77,7 +81,7 @@ def main():
         # IMPORTANT: create FRESH objects so hospital.preferences are full (not popped)
         hospitals, applicants = processInput.create_objects(n, hospitals_prefs, applicants_prefs)
 
-        is_valid, is_stable, msg = galeShapley.verify_matching(n, hospitals, applicants, proposed)
+        is_valid, is_stable, msg = verifier.verify_matching(n, hospitals, applicants, proposed)
         print(msg)
     
     elif mode == "scale":

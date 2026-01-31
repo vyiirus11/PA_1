@@ -17,7 +17,8 @@ def verify_matching(n, hospitals, applicants, proposed_matching):
     _apply_matching(hospitals, applicants, proposed_matching)
 
     # (b) stability check
-    stable, info = _check_stability(n, hospitals, applicants)
+    stable, info = _check_stability(hospitals, applicants)
+
     if not stable:
         curr_hospital, fav_app = info
         return True, False, f"UNSTABLE: blocking pair ({curr_hospital}, {fav_app})"
@@ -75,10 +76,9 @@ def _check_stability(hospitals, applicants):
     """
     # precompute hospital ranking of applicants (for "prefers" test)
     # hospital_rank[h_id][a_id] = rank (smaller is better)
-    hospital_rank = {
-        curr_hospital.id: {fav_app.id: i for i, fav_app in enumerate(list(h.preferences))}
-        for h in hospitals
-    }
+    hospital_rank = { h.id: {a.id: i for i, a in enumerate(list(h.preferences))}
+    for h in hospitals}
+
 
     for curr_hospital in hospitals:
         curr_a = curr_hospital.matched_applicant
